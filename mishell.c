@@ -18,18 +18,22 @@ int main(int argc, char* argv[]) {
                 leer_de_teclado(256, command);
                 if (strcmp(command,"salir") == 0) break;
 		if (strcmp(command,"tareas")==0){
-		printf("colaTareas vale: %d /",colaTareas);
 		for(int c = 0 ; c<colaTareas;c++){
                         printf("%d \n",tareas[c]);
                         }continue;
 		}
-		//if (strcmp(command,"detener")==0){
-		//execvp(kill,)
-                comando = de_cadena_a_vector(command);
+        comando = de_cadena_a_vector(command);
 		i = 0;
 		background = 0;
 		if (strcmp(comando[0],"detener")==0){
 		comando[0] = "kill";
+		for(int w = 0; w<colaTareas;w++){
+		if(strcmp(tareas[w],comando[1])==0)
+		{
+			tareas[w] = '\0';
+			break;
+		}
+		}
 		}
 		while (comando[i]){
 		i++;
@@ -45,14 +49,8 @@ int main(int argc, char* argv[]) {
                         execvp(comando[0], comando);
                 else{
 			if(background == 1){
-			//sprintf(pid, "%d", rc);
 			tareas[colaTareas]=rc;
-			//for(int c = 0 ; c<=colaTareas;c++){
-			//int size = sizeof prices / sizeof prices[0];
-			//printf("%d",tareas[c]);
-			//}
 			colaTareas++;
-			printf("Suma 1 a Colatareas, valor actual: %d ",colaTareas);
 			}
 			else
                         	wait(NULL);
