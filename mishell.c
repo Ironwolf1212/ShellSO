@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
 		if (strcmp(comando[0],"detener")==0){
 		comando[0] = "kill";
 		for(int w = 0; w<colaTareas;w++){
-		if(strcmp(tareas[w],comando[1])==0)
+		if(tareas[w]==(int)comando[1])
 		{
 			tareas[w] = '\0';
 			break;
