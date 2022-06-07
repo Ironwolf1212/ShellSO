@@ -8,7 +8,6 @@
 int main(int argc, char* argv[]) {
         char command[256];
         char **comando;
-	char* pid = "";
 	int i;
 	int background;
 	int tareas[5];
